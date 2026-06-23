@@ -602,12 +602,8 @@
       <img class="ticket-preview-img" id="ticket-preview" alt="Ticket">
     </label>
 
-    <span class="qty-label-title">¿Cuántos cartones has comprado?</span>
-    <div class="qty-buttons">
-      <button class="qty-btn" onclick="selectQty(1, this)">1</button>
-      <button class="qty-btn" onclick="selectQty(2, this)">2</button>
-      <button class="qty-btn" onclick="selectQty(3, this)">3</button>
-    </div>
+    <span class="qty-label-title">¿Cuántos cartones has comprado en total?</span>
+    <div id="brand-qty-container"></div>
     <div class="qty-hint">También válido Duopack (cuenta como 2 cartones)</div>
 
     <div class="error-msg" id="error-msg"></div>
@@ -682,8 +678,9 @@
 </div>
 
 <script>
-  let selectedBrand = '';
+  let selectedBrands = [];
   let selectedQty = 0;
+  let brandQtys = {};
   let ticketLoaded = false;
   let chosenReward = null; // for 3-carton choice
 
@@ -694,14 +691,20 @@
   ];
 
   function selectBrand(name, el) {
-    selectedBrand = name;
-    document.querySelectorAll('.brand-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    document.getElementById('btn-step1').disabled = false;
+    if (el.classList.contains('selected')) {
+      el.classList.remove('selected');
+      selectedBrands = selectedBrands.filter(b => b !== name);
+    } else {
+      el.classList.add('selected');
+      if (!selectedBrands.includes(name)) selectedBrands.push(name);
+    }
+    document.getElementById('btn-step1').disabled = selectedBrands.length === 0;
   }
 
   function goToStep2() {
-    if (!selectedBrand) return;
+    if (selectedBrands.length === 0) return;
+    // Build brand qty UI
+    buildBrandQtyUI();
     setStep(2);
   }
 
@@ -724,25 +727,58 @@
     reader.readAsDataURL(file);
   }
 
-  function selectQty(n, btn) {
-    selectedQty = n;
-    document.querySelectorAll('.qty-btn').forEach(b => b.classList.remove('selected'));
+  function selectQty(n, brand, btn) {
+    brandQtys[brand] = n;
+    // Deselect sibling buttons for this brand
+    btn.closest('.brand-qty-row').querySelectorAll('.qty-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
+    selectedQty = getTotalQty();
     checkStep2();
   }
 
+  function buildBrandQtyUI() {
+    brandQtys = {};
+    const container = document.getElementById('brand-qty-container');
+    container.innerHTML = '';
+    selectedBrands.forEach(function(brand) {
+      const row = document.createElement('div');
+      row.className = 'brand-qty-row';
+      const label = document.createElement('div');
+      label.className = 'brand-qty-label';
+      label.innerHTML = 'Cartones de <strong>' + brand + '</strong>';
+      const btns = document.createElement('div');
+      btns.className = 'qty-buttons';
+      [1, 2, 3].forEach(function(n) {
+        const btn = document.createElement('button');
+        btn.className = 'qty-btn';
+        btn.textContent = n;
+        btn.addEventListener('click', function() { selectQty(n, brand, btn); });
+        btns.appendChild(btn);
+      });
+      row.appendChild(label);
+      row.appendChild(btns);
+      container.appendChild(row);
+    });
+  }
+
   function checkStep2() {
-    document.getElementById('btn-step2').disabled = !(ticketLoaded && selectedQty > 0);
+    const total = getTotalQty();
+    document.getElementById('btn-step2').disabled = !(ticketLoaded && total > 0);
+  }
+
+  function getTotalQty() {
+    return selectedBrands.reduce((sum, b) => sum + (brandQtys[b] || 0), 0);
   }
 
   function goToStep3() {
+    selectedQty = getTotalQty();
     if (!ticketLoaded) { showError('Por favor sube una foto de tu ticket.'); return; }
     if (!selectedQty) { showError('Selecciona cuántos cartones has comprado.'); return; }
     hideError();
     setStep(3);
 
     document.getElementById('r-qty').textContent = selectedQty;
-    document.getElementById('r-brand').textContent = selectedBrand;
+    document.getElementById('r-brand').textContent = selectedBrands.join(', ');
 
     // Show choice section always
     document.getElementById('choice-section').style.display = 'block';
@@ -855,7 +891,7 @@
     const expiry = new Date(now);
     expiry.setDate(expiry.getDate() + 30);
     const fmt = d => d.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric' });
-    document.getElementById('v-brand').textContent = 'Marca: ' + selectedBrand;
+    document.getElementById('v-brand').textContent = 'Marca: ' + selectedBrands.join(', ');
     document.getElementById('v-code').textContent = code;
 
     document.getElementById('voucher-modal').classList.add('show');
