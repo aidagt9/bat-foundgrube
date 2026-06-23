@@ -614,28 +614,26 @@
       <div class="reward-brand-pill" id="r-brand">—</div>
     </div>
 
-    <div class="reward-card" id="rcard-1">
-      <div class="reward-icon">🩴</div>
-      <div class="reward-info">
-        <div class="reward-name">Chanclas</div>
-        <div class="reward-req">Por 1 cartón</div>
-      </div>
-      <div class="reward-status" id="rs-1">🔒</div>
-    </div>
-
-    <div class="reward-card" id="rcard-2">
-      <div class="reward-icon">☕</div>
-      <div class="reward-info">
-        <div class="reward-name">Termo</div>
-        <div class="reward-req">Por 2 cartones (o Duopack)</div>
-      </div>
-      <div class="reward-status" id="rs-2">🔒</div>
-    </div>
-
-    <!-- Choice for 3 cartones: altavoces OR voucher -->
+    <!-- Choice section - shown dynamically -->
     <div id="choice-section" style="display:none">
-      <div class="choice-label">Con 3 cartones, elige tu regalo</div>
-      <div class="reward-card choice" id="choice-altavoces" onclick="selectChoice('altavoces', this)">
+      <div class="choice-label" id="choice-label">Elige tu regalo</div>
+      <div class="reward-card choice" id="choice-chanclas" onclick="selectChoice('chanclas', this)">
+        <div class="reward-icon">🩴</div>
+        <div class="reward-info">
+          <div class="reward-name">Chanclas</div>
+          <div class="reward-req">Por 1 o 2 cartones</div>
+        </div>
+        <div class="reward-status" id="rs-chanclas">○</div>
+      </div>
+      <div class="reward-card choice" id="choice-termo" onclick="selectChoice('termo', this)">
+        <div class="reward-icon">☕</div>
+        <div class="reward-info">
+          <div class="reward-name">Termo</div>
+          <div class="reward-req">Por 2 cartones (o Duopack)</div>
+        </div>
+        <div class="reward-status" id="rs-termo">○</div>
+      </div>
+      <div class="reward-card choice" id="choice-altavoces" onclick="selectChoice('altavoces', this)" style="display:none">
         <div class="reward-icon">🔊</div>
         <div class="reward-info">
           <div class="reward-name">Altavoces</div>
@@ -643,7 +641,7 @@
         </div>
         <div class="reward-status" id="rs-altavoces">○</div>
       </div>
-      <div class="reward-card choice" id="choice-voucher" onclick="selectChoice('voucher', this)">
+      <div class="reward-card choice" id="choice-voucher" onclick="selectChoice('voucher', this)" style="display:none">
         <div class="reward-icon">🎟️</div>
         <div class="reward-info">
           <div class="reward-name">Voucher 5€</div>
@@ -651,15 +649,6 @@
         </div>
         <div class="reward-status" id="rs-voucher">○</div>
       </div>
-    </div>
-
-    <div class="reward-card" id="rcard-3" style="display:none">
-      <div class="reward-icon">🔊</div>
-      <div class="reward-info">
-        <div class="reward-name">Altavoces</div>
-        <div class="reward-req">Por 3 cartones</div>
-      </div>
-      <div class="reward-status" id="rs-3">🔒</div>
     </div>
 
     <button class="btn-primary" id="btn-confirm" onclick="confirmReward()" disabled>RECLAMAR MI REGALO</button>
@@ -745,31 +734,34 @@
     document.getElementById('r-qty').textContent = selectedQty;
     document.getElementById('r-brand').textContent = selectedBrand;
 
-    // Unlock rewards
-    REWARDS.forEach((r, i) => {
-      const card = document.getElementById('rcard-' + (i+1));
-      const status = document.getElementById('rs-' + (i+1));
-      if (selectedQty >= r.min) {
-        card.classList.add('earned');
-        card.classList.remove('locked');
-        status.textContent = '✅';
-      } else {
-        card.classList.add('locked');
-        status.textContent = '🔒';
-      }
+    // Show choice section always
+    document.getElementById('choice-section').style.display = 'block';
+    chosenReward = null;
+    document.getElementById('btn-confirm').disabled = true;
+
+    // Reset all choice cards
+    document.querySelectorAll('.reward-card.choice').forEach(c => {
+      c.style.display = 'none';
+      c.classList.remove('chosen');
+      c.querySelector('.reward-status').textContent = '○';
     });
 
-    // Show choice for 3 cartones
-    if (selectedQty >= 3) {
-      document.getElementById('choice-section').style.display = 'block';
-      document.getElementById('rcard-3').style.display = 'none';
-      chosenReward = null;
-      document.getElementById('btn-confirm').disabled = true;
-    } else {
-      document.getElementById('choice-section').style.display = 'none';
-      document.getElementById('rcard-3').style.display = 'flex';
-      chosenReward = REWARDS.filter(r => selectedQty >= r.min).pop();
-      document.getElementById('btn-confirm').disabled = false;
+    if (selectedQty === 1) {
+      // 1 carton: only chanclas
+      document.getElementById('choice-chanclas').style.display = 'flex';
+      document.getElementById('choice-label').textContent = 'Tu regalo';
+      // Auto-select chanclas
+      selectChoice('chanclas', document.getElementById('choice-chanclas'));
+    } else if (selectedQty === 2) {
+      // 2 cartones: choose chanclas or termo
+      document.getElementById('choice-chanclas').style.display = 'flex';
+      document.getElementById('choice-termo').style.display = 'flex';
+      document.getElementById('choice-label').textContent = 'Elige tu regalo';
+    } else if (selectedQty >= 3) {
+      // 3 cartones: choose altavoces or voucher
+      document.getElementById('choice-altavoces').style.display = 'flex';
+      document.getElementById('choice-voucher').style.display = 'flex';
+      document.getElementById('choice-label').textContent = 'Elige tu regalo';
     }
 
     spawnConfetti();
@@ -782,11 +774,13 @@
     });
     el.classList.add('chosen');
     el.querySelector('.reward-status').textContent = '✅';
-    if (type === 'altavoces') {
-      chosenReward = { id: 'altavoces', icon: '🔊', name: 'Altavoces' };
-    } else {
-      chosenReward = { id: 'voucher', icon: '🎟️', name: 'Voucher 5€' };
-    }
+    const rewards = {
+      chanclas:  { id: 'chanclas',  icon: '🩴', name: 'Chanclas' },
+      termo:     { id: 'termo',     icon: '☕', name: 'Termo' },
+      altavoces: { id: 'altavoces', icon: '🔊', name: 'Altavoces' },
+      voucher:   { id: 'voucher',   icon: '🎟️', name: 'Voucher 5€' }
+    };
+    chosenReward = rewards[type];
     document.getElementById('btn-confirm').disabled = false;
   }
 
