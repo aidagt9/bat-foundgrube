@@ -389,16 +389,14 @@
 
     // Guardar en Google Sheets
     try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          marcas:    selectedBrands.join(', '),
-          cartones:  selectedQty,
-          regalo:    chosenReward.name,
-          ticket_url: ''
-        })
+      const params = new URLSearchParams({
+        marcas:   selectedBrands.join(', '),
+        cartones: selectedQty,
+        regalo:   chosenReward.name
+      });
+      await fetch(SCRIPT_URL + '?' + params.toString(), {
+        method: 'GET',
+        mode: 'no-cors'
       });
     } catch(e) {
       console.warn('Error guardando:', e);
