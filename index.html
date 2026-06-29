@@ -194,12 +194,12 @@
       <div class="choice-label" id="choice-label">Elige tu regalo</div>
       <div class="reward-card choice" id="choice-chanclas" onclick="selectChoice('chanclas',this)">
         <div class="reward-icon">🩴</div>
-        <div class="reward-info"><div class="reward-name">Chanclas</div><div class="reward-req">Por 1 o 2 cartones</div></div>
+        <div class="reward-info"><div class="reward-name">Chanclas</div><div class="reward-req">Por 1 cartón</div></div>
         <div class="reward-status" id="rs-chanclas">○</div>
       </div>
       <div class="reward-card choice" id="choice-termo" onclick="selectChoice('termo',this)">
         <div class="reward-icon">☕</div>
-        <div class="reward-info"><div class="reward-name">Termo</div><div class="reward-req">Por 2 cartones (o Duopack)</div></div>
+        <div class="reward-info"><div class="reward-name">Termo</div><div class="reward-req">Por 2 cartones o Duopack</div></div>
         <div class="reward-status" id="rs-termo">○</div>
       </div>
       <div class="reward-card choice" id="choice-altavoces" onclick="selectChoice('altavoces',this)" style="display:none">
@@ -358,9 +358,9 @@
       document.getElementById('choice-label').textContent = 'Tu regalo';
       selectChoice('chanclas', document.getElementById('choice-chanclas'));
     } else if (selectedQty === 2) {
-      document.getElementById('choice-chanclas').style.display = 'flex';
-      document.getElementById('choice-termo').style.display    = 'flex';
-      document.getElementById('choice-label').textContent = 'Elige tu regalo';
+      document.getElementById('choice-termo').style.display = 'flex';
+      document.getElementById('choice-label').textContent = 'Tu regalo';
+      selectChoice('termo', document.getElementById('choice-termo'));
     } else {
       document.getElementById('choice-altavoces').style.display = 'flex';
       document.getElementById('choice-voucher').style.display   = 'flex';
