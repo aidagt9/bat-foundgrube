@@ -7,242 +7,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bat-blue: #003DA5;
-    --bat-blue-dark: #002278;
-    --bat-blue-light: #1A5BC4;
-    --bat-red: #E30613;
-    --bat-gold: #C9A84C;
-    --white: #FFFFFF;
-    --off-white: #F4F7FF;
-    --gray: #6B7A99;
-    --light-gray: #E8EDF8;
-    --dark: #0A0F1E;
+    --bat-blue: #003DA5; --bat-blue-dark: #002278; --bat-blue-light: #1A5BC4;
+    --bat-red: #E30613; --bat-gold: #C9A84C; --white: #FFFFFF;
+    --off-white: #F4F7FF; --gray: #6B7A99; --light-gray: #E8EDF8; --dark: #0A0F1E;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--off-white);
-    font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* ── HEADER ── */
-  .header {
-    width: 100%;
-    background: var(--bat-blue);
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 20px rgba(0,61,165,0.3);
-  }
-
-  .header-logos {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .logo-bat {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--white);
-    letter-spacing: -0.5px;
-  }
-
+  body { background: var(--off-white); font-family: 'Open Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+  .header { width: 100%; background: var(--bat-blue); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(0,61,165,0.3); }
+  .header-logos { display: flex; align-items: center; gap: 16px; }
+  .logo-bat { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 22px; color: var(--white); letter-spacing: -0.5px; }
   .logo-bat span { color: var(--bat-gold); }
-
   .logo-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.25); }
-
-  .logo-fundgrube {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: 0.5px;
-  }
-
+  .logo-fundgrube { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.85); }
   .logo-fundgrube small { display: block; font-size: 9px; letter-spacing: 2px; color: var(--bat-gold); font-weight: 600; }
-
-  .header-badge {
-    background: var(--bat-gold);
-    color: var(--bat-blue-dark);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 10px;
-    letter-spacing: 1px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    width: 100%;
-    background: linear-gradient(135deg, var(--bat-blue-dark) 0%, var(--bat-blue) 60%, var(--bat-blue-light) 100%);
-    padding: 32px 24px 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.08);
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -30px;
-    width: 160px; height: 160px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-
-  .hero-eyebrow {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--bat-gold);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    position: relative; z-index: 2;
-  }
-
-  .hero-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 32px;
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 8px;
-    position: relative; z-index: 2;
-  }
-
+  .header-badge { background: var(--bat-gold); color: var(--bat-blue-dark); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+  .hero { width: 100%; background: linear-gradient(135deg, var(--bat-blue-dark) 0%, var(--bat-blue) 60%, var(--bat-blue-light) 100%); padding: 32px 24px 28px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(201,168,76,0.08); }
+  .hero::after { content: ''; position: absolute; bottom: -60px; left: -30px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+  .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--bat-gold); text-transform: uppercase; margin-bottom: 10px; position: relative; z-index: 2; }
+  .hero-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 32px; color: var(--white); line-height: 1.1; margin-bottom: 8px; position: relative; z-index: 2; }
   .hero-title em { color: var(--bat-gold); font-style: normal; }
-
-  .hero-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    position: relative; z-index: 2;
-    line-height: 1.5;
-  }
-
-  /* ── MAIN CARD ── */
-  .main-card {
-    width: 100%;
-    max-width: 480px;
-    background: var(--white);
-    border-radius: 16px;
-    margin: -16px auto 24px;
-    box-shadow: 0 8px 40px rgba(0,61,165,0.12);
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* ── STEPS ── */
-  .steps-bar {
-    display: flex;
-    background: var(--light-gray);
-    padding: 0;
-  }
-
-  .step-tab {
-    flex: 1;
-    padding: 14px 8px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--gray);
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
-  }
-
+  .hero-sub { font-size: 13px; color: rgba(255,255,255,0.6); position: relative; z-index: 2; line-height: 1.5; }
+  .main-card { width: 100%; max-width: 480px; background: var(--white); border-radius: 16px; margin: -16px auto 24px; box-shadow: 0 8px 40px rgba(0,61,165,0.12); overflow: hidden; position: relative; z-index: 10; }
+  .steps-bar { display: flex; background: var(--light-gray); }
+  .step-tab { flex: 1; padding: 14px 8px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); border-bottom: 3px solid transparent; transition: all 0.3s; }
   .step-tab.active { color: var(--bat-blue); border-bottom-color: var(--bat-blue); background: var(--white); }
   .step-tab.done { color: var(--bat-gold); border-bottom-color: var(--bat-gold); }
-
-  /* ── SECTION CONTENT ── */
   .section { display: none; padding: 24px; }
   .section.active { display: block; }
-
-  .section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--bat-blue-dark);
-    margin-bottom: 6px;
-  }
-
+  .section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: var(--bat-blue-dark); margin-bottom: 6px; }
   .section-sub { font-size: 12px; color: var(--gray); margin-bottom: 20px; line-height: 1.5; }
-
-  /* ── BRAND GRID ── */
-  .brand-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .brand-card {
-    border: 2px solid var(--light-gray);
-    border-radius: 10px;
-    padding: 10px 6px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: var(--off-white);
-  }
-
+  .brand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+  .brand-card { border: 2px solid var(--light-gray); border-radius: 10px; padding: 10px 6px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--off-white); }
   .brand-card:hover { border-color: var(--bat-blue-light); background: #EEF3FF; }
   .brand-card.selected { border-color: var(--bat-blue); background: #EEF3FF; box-shadow: 0 0 0 3px rgba(0,61,165,0.15); }
-
   .brand-icon { font-size: 22px; margin-bottom: 4px; }
   .brand-name { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; color: var(--bat-blue-dark); letter-spacing: 0.3px; text-transform: uppercase; }
-  .brand-card.selected .brand-name { color: var(--bat-blue); }
-
   .brand-check { display: none; color: var(--bat-blue); font-size: 14px; margin-top: 2px; }
   .brand-card.selected .brand-check { display: block; }
-
-  .disclaimer {
-    font-size: 10px;
-    color: var(--gray);
-    background: var(--light-gray);
-    border-radius: 6px;
-    padding: 8px 10px;
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
-
-  /* ── TICKET UPLOAD ── */
-  .ticket-zone {
-    display: block;
-    border: 2px dashed rgba(0,61,165,0.25);
-    border-radius: 10px;
-    padding: 24px 16px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.25s;
-    background: var(--off-white);
-    margin-bottom: 8px;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
+  .ticket-zone { display: block; border: 2px dashed rgba(0,61,165,0.25); border-radius: 10px; padding: 24px 16px; text-align: center; cursor: pointer; transition: all 0.25s; background: var(--off-white); margin-bottom: 8px; width: 100%; }
   .ticket-zone:hover { border-color: var(--bat-blue); background: #EEF3FF; }
   .ticket-zone.has-file { border-style: solid; border-color: #2E7D32; background: rgba(46,125,50,0.04); }
   .ticket-zone input[type=file] { display: none; }
@@ -251,140 +54,35 @@
   .ticket-zone.has-file .ticket-zone-text { color: #2E7D32; }
   .ticket-zone-sub { font-size: 11px; color: var(--gray); }
   .ticket-preview-img { display: none; width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; margin-top: 10px; }
-
-  /* ── QUANTITY ── */
-  .qty-label-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--bat-blue-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    margin-top: 16px;
-    display: block;
-  }
-
+  .qty-label-title { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--bat-blue-dark); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; margin-top: 16px; display: block; }
   .qty-buttons { display: flex; gap: 8px; }
-
-  .qty-btn {
-    flex: 1;
-    padding: 14px 4px;
-    border: 2px solid var(--light-gray);
-    border-radius: 8px;
-    background: var(--off-white);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--bat-blue-dark);
-    text-align: center;
-  }
-
+  .qty-btn { flex: 1; padding: 14px 4px; border: 2px solid var(--light-gray); border-radius: 8px; background: var(--off-white); font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--bat-blue-dark); text-align: center; }
   .qty-btn:hover { border-color: var(--bat-blue-light); }
   .qty-btn.selected { border-color: var(--bat-blue); background: var(--bat-blue); color: white; }
-
   .qty-hint { font-size: 10px; color: var(--gray); text-align: center; margin-top: 6px; }
-
-  /* ── BTN ── */
-  .btn-primary {
-    width: 100%;
-    padding: 15px;
-    background: var(--bat-blue);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 20px;
-  }
-
+  .btn-primary { width: 100%; padding: 15px; background: var(--bat-blue); color: white; border: none; border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; margin-top: 20px; }
   .btn-primary:hover { background: var(--bat-blue-dark); }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-
   .error-msg { display: none; background: #FFF0F0; border: 1px solid #FFCDD2; border-radius: 6px; padding: 10px 12px; font-size: 12px; color: var(--bat-red); margin-top: 10px; line-height: 1.5; }
   .error-msg.show { display: block; }
-
-  /* ── REWARD SECTION ── */
-  .reward-header {
-    background: linear-gradient(135deg, var(--bat-blue-dark), var(--bat-blue));
-    margin: -24px -24px 20px;
-    padding: 24px;
-    text-align: center;
-  }
-
-  .reward-qty-badge {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255,255,255,0.1);
-    border: 2px solid var(--bat-gold);
-    border-radius: 12px;
-    padding: 12px 24px;
-    margin-bottom: 12px;
-  }
-
-  .reward-qty-num {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 52px;
-    color: var(--bat-gold);
-    line-height: 1;
-  }
-
+  .reward-header { background: linear-gradient(135deg, var(--bat-blue-dark), var(--bat-blue)); margin: -24px -24px 20px; padding: 24px; text-align: center; }
+  .reward-qty-badge { display: inline-flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.1); border: 2px solid var(--bat-gold); border-radius: 12px; padding: 12px 24px; margin-bottom: 12px; }
+  .reward-qty-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 52px; color: var(--bat-gold); line-height: 1; }
   .reward-qty-label { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 4px; }
   .reward-brand-pill { display: inline-block; background: var(--bat-gold); color: var(--bat-blue-dark); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-top: 8px; }
-
-  /* Reward cards */
-  .reward-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 2px solid var(--light-gray);
-    background: var(--off-white);
-    transition: all 0.2s;
-  }
-
-  .reward-card.earned { border-color: var(--bat-blue); background: #EEF3FF; }
-  .reward-card.locked { opacity: 0.4; }
+  .reward-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 10px; margin-bottom: 10px; border: 2px solid var(--light-gray); background: var(--off-white); transition: all 0.2s; }
   .reward-card.choice { border-color: var(--bat-gold); background: #FFFBF0; cursor: pointer; }
   .reward-card.choice:hover { box-shadow: 0 4px 16px rgba(201,168,76,0.25); }
   .reward-card.chosen { border-color: var(--bat-blue); background: var(--bat-blue); }
   .reward-card.chosen .reward-name { color: white; }
   .reward-card.chosen .reward-req { color: rgba(255,255,255,0.6); }
-
   .reward-icon { font-size: 32px; flex-shrink: 0; }
   .reward-info { flex: 1; }
   .reward-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--bat-blue-dark); margin-bottom: 2px; }
   .reward-req { font-size: 11px; color: var(--gray); }
-  .reward-card.earned .reward-req { color: var(--bat-blue); font-weight: 600; }
-  .reward-status { font-size: 20px; flex-shrink: 0; }
-
-  .choice-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--bat-gold);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 16px 0 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  .choice-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--bat-gold); letter-spacing: 1px; text-transform: uppercase; margin: 16px 0 10px; display: flex; align-items: center; gap: 8px; }
   .choice-label::after { content: ''; flex: 1; height: 1px; background: var(--bat-gold); opacity: 0.3; }
-
-  /* ── CONFIRM MODAL ── */
+  .reward-status { font-size: 20px; flex-shrink: 0; }
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,30,80,0.7); z-index: 1000; align-items: center; justify-content: center; padding: 24px; }
   .modal-overlay.show { display: flex; }
   .modal { background: white; border-radius: 16px; padding: 36px 28px; text-align: center; max-width: 340px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-top: 5px solid var(--bat-blue); animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1); }
@@ -394,206 +92,83 @@
   .modal-body { font-size: 13px; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
   .modal-body strong { color: var(--bat-blue); }
   .modal-close { padding: 12px 32px; background: var(--bat-blue); color: white; border: none; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; cursor: pointer; text-transform: uppercase; }
-
-  /* ── CONFETTI ── */
   @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
   .confetti-piece { position: fixed; pointer-events: none; z-index: 9999; animation: fall linear forwards; }
-
-  /* ── FOOTER ── */
   .app-footer { width: 100%; max-width: 480px; padding: 16px 24px; text-align: center; font-size: 10px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-
-  /* ── VOUCHER ── */
   #voucher-modal { align-items: flex-end; padding: 0; background: rgba(0,20,60,0.85); }
   .voucher-wrap { width: 100%; max-width: 480px; padding: 16px; padding-bottom: 32px; animation: slideUp 0.4s cubic-bezier(0.34,1.2,0.64,1); }
   @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .voucher {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    position: relative;
-  }
-  .voucher::before {
-    content: '';
-    position: absolute;
-    left: -12px; top: 50%;
-    width: 24px; height: 24px;
-    background: rgba(0,20,60,0.85);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-  .voucher::after {
-    content: '';
-    position: absolute;
-    right: -12px; top: 50%;
-    width: 24px; height: 24px;
-    background: rgba(0,20,60,0.85);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-  .voucher-top {
-    background: linear-gradient(135deg, var(--bat-blue-dark), var(--bat-blue));
-    padding: 20px 24px 16px;
-    text-align: center;
-  }
-  .voucher-logos { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; }
+  .voucher { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; }
+  .voucher::before { content: ''; position: absolute; left: -12px; top: 50%; width: 24px; height: 24px; background: rgba(0,20,60,0.85); border-radius: 50%; transform: translateY(-50%); z-index: 10; }
+  .voucher::after { content: ''; position: absolute; right: -12px; top: 50%; width: 24px; height: 24px; background: rgba(0,20,60,0.85); border-radius: 50%; transform: translateY(-50%); z-index: 10; }
+  .voucher-top { background: linear-gradient(135deg, var(--bat-blue-dark), var(--bat-blue)); padding: 20px 24px 16px; text-align: center; }
   .voucher-bat { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 20px; color: white; letter-spacing: 2px; }
-  .voucher-sep { font-size: 14px; color: var(--bat-gold); font-weight: 700; }
-  .voucher-fg { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.8); letter-spacing: 1px; }
-  .voucher-promo { font-size: 10px; letter-spacing: 3px; color: var(--bat-gold); text-transform: uppercase; }
-  .voucher-middle {
-    background: var(--bat-gold);
-    padding: 24px;
-    text-align: center;
-    position: relative;
-  }
-  .voucher-amount {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 80px;
-    color: var(--bat-blue-dark);
-    line-height: 1;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
+  .voucher-promo { font-size: 10px; letter-spacing: 3px; color: var(--bat-gold); text-transform: uppercase; margin-top: 4px; }
+  .voucher-middle { background: var(--bat-gold); padding: 24px; text-align: center; }
+  .voucher-amount { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 80px; color: var(--bat-blue-dark); line-height: 1; }
   .voucher-desc { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2px; color: var(--bat-blue-dark); text-transform: uppercase; margin-top: 4px; }
   .voucher-desc-en { font-size: 10px; color: rgba(0,35,100,0.6); margin-top: 4px; font-style: italic; }
-  .voucher-dashes {
-    height: 2px;
-    background: repeating-linear-gradient(90deg, var(--bat-blue) 0, var(--bat-blue) 8px, transparent 8px, transparent 14px);
-    margin: 0 16px;
-    opacity: 0.2;
-  }
+  .voucher-dashes { height: 2px; background: repeating-linear-gradient(90deg, var(--bat-blue) 0, var(--bat-blue) 8px, transparent 8px, transparent 14px); margin: 0 16px; opacity: 0.2; }
   .voucher-bottom { padding: 16px 24px 20px; text-align: center; background: white; }
   .voucher-brand-used { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; color: var(--bat-blue-dark); margin-bottom: 8px; }
   .voucher-code { font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; color: var(--bat-blue); letter-spacing: 4px; background: var(--light-gray); padding: 8px 16px; border-radius: 6px; display: inline-block; margin-bottom: 6px; }
-  .voucher-date { font-size: 10px; color: var(--gray); margin-bottom: 10px; }
   .voucher-instructions { font-size: 10px; color: var(--gray); line-height: 1.5; border-top: 1px dashed var(--light-gray); padding-top: 10px; margin-top: 4px; }
-  .voucher-close { width: 100%; margin-top: 12px; padding: 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; letter-spacing: 1px; }
+  .voucher-close { width: 100%; margin-top: 12px; padding: 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; }
+  .brand-qty-row { margin-bottom: 14px; }
+  .brand-qty-label { font-size: 12px; color: var(--bat-blue-dark); margin-bottom: 6px; }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-logos">
-    <img src="data:image/jpeg;base64,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" alt="BAT" style="height:36px;object-fit:contain;">
-    
+    <div class="logo-bat">BAT <span>·</span></div>
+    <div class="logo-sep"></div>
+    <div class="logo-fundgrube">Summer Rewards<small>VERANO 2026</small></div>
   </div>
   <div class="header-badge">Summer Rewards</div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Promoción exclusiva · Verano 2026</div>
   <div class="hero-title">Compra y<br><em>llévate tu regalo</em></div>
-  <div class="hero-sub"></div>
 </div>
 
-<!-- MAIN CARD -->
 <div class="main-card">
-
-  <!-- STEP TABS -->
   <div class="steps-bar">
     <div class="step-tab active" id="tab-1">1. Marca</div>
     <div class="step-tab" id="tab-2">2. Ticket</div>
     <div class="step-tab" id="tab-3">3. Regalo</div>
   </div>
 
-  <!-- STEP 1: BRAND -->
+  <!-- STEP 1 -->
   <div class="section active" id="section-1">
     <div class="section-title">¿Qué marca has comprado?</div>
     <div class="section-sub">Selecciona la marca participante de tu compra.</div>
-
     <div class="brand-grid">
-      <div class="brand-card" onclick="selectBrand('JP Red', this)">
-        <div class="brand-icon">🔴</div>
-        <div class="brand-name">JP Red</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('JP Blue', this)">
-        <div class="brand-icon">🔵</div>
-        <div class="brand-name">JP Blue</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Lucky Strike', this)">
-        <div class="brand-icon">⚫</div>
-        <div class="brand-name">Lucky Strike</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Lucky Eclipse', this)">
-        <div class="brand-icon">🌑</div>
-        <div class="brand-name">Lucky Eclipse</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Lucky Twist', this)">
-        <div class="brand-icon">🌀</div>
-        <div class="brand-name">Lucky Twist</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Prince', this)">
-        <div class="brand-icon">👑</div>
-        <div class="brand-name">Prince</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Prince Founded', this)">
-        <div class="brand-icon">🏰</div>
-        <div class="brand-name">Prince Founded</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Cutters Choice', this)">
-        <div class="brand-icon">✂️</div>
-        <div class="brand-name">Cutters Choice</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Pall Mall', this)">
-        <div class="brand-icon">🎯</div>
-        <div class="brand-name">Pall Mall</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Dunhill', this)">
-        <div class="brand-icon">🟤</div>
-        <div class="brand-name">Dunhill</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Vogue', this)">
-        <div class="brand-icon">🌸</div>
-        <div class="brand-name">Vogue La Cigarette</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Rothmans Red', this)">
-        <div class="brand-icon">🔴</div>
-        <div class="brand-name">Rothmans Red</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Rothmans 24', this)">
-        <div class="brand-icon">🔷</div>
-        <div class="brand-name">Rothmans 24</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Rothmans Blue', this)">
-        <div class="brand-icon">🔵</div>
-        <div class="brand-name">Rothmans Blue</div>
-        <div class="brand-check">✓</div>
-      </div>
-      <div class="brand-card" onclick="selectBrand('Rothmans Essence', this)">
-        <div class="brand-icon">💎</div>
-        <div class="brand-name">Rothmans Essence</div>
-        <div class="brand-check">✓</div>
-      </div>
+      <div class="brand-card" onclick="selectBrand('JP Red',this)"><div class="brand-icon">🔴</div><div class="brand-name">JP Red</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('JP Blue',this)"><div class="brand-icon">🔵</div><div class="brand-name">JP Blue</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Lucky Strike',this)"><div class="brand-icon">⚫</div><div class="brand-name">Lucky Strike</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Lucky Eclipse',this)"><div class="brand-icon">🌑</div><div class="brand-name">Lucky Eclipse</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Lucky Twist',this)"><div class="brand-icon">🌀</div><div class="brand-name">Lucky Twist</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Prince',this)"><div class="brand-icon">👑</div><div class="brand-name">Prince</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Prince Founded',this)"><div class="brand-icon">🏰</div><div class="brand-name">Prince Founded</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Cutters Choice',this)"><div class="brand-icon">✂️</div><div class="brand-name">Cutters Choice</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Pall Mall',this)"><div class="brand-icon">🎯</div><div class="brand-name">Pall Mall</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Dunhill',this)"><div class="brand-icon">🟤</div><div class="brand-name">Dunhill</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Vogue',this)"><div class="brand-icon">🌸</div><div class="brand-name">Vogue La Cigarette</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Rothmans Red',this)"><div class="brand-icon">🔴</div><div class="brand-name">Rothmans Red</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Rothmans 24',this)"><div class="brand-icon">🔷</div><div class="brand-name">Rothmans 24</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Rothmans Blue',this)"><div class="brand-icon">🔵</div><div class="brand-name">Rothmans Blue</div><div class="brand-check">✓</div></div>
+      <div class="brand-card" onclick="selectBrand('Rothmans Essence',this)"><div class="brand-icon">💎</div><div class="brand-name">Rothmans Essence</div><div class="brand-check">✓</div></div>
     </div>
-
-    
-
     <button class="btn-primary" id="btn-step1" onclick="goToStep2()" disabled>CONTINUAR →</button>
   </div>
 
-  <!-- STEP 2: TICKET + QUANTITY -->
+  <!-- STEP 2 -->
   <div class="section" id="section-2">
     <div class="section-title">Sube tu ticket de compra</div>
     <div class="section-sub">Haz una foto clara de tu ticket e indica cuántos cartones has comprado.</div>
-
     <label class="ticket-zone" id="ticket-zone">
       <input type="file" accept="image/*" onchange="handleTicket(this)">
       <div class="ticket-zone-icon" id="tz-icon">📄</div>
@@ -601,16 +176,14 @@
       <div class="ticket-zone-sub" id="tz-sub">JPG, PNG o HEIC</div>
       <img class="ticket-preview-img" id="ticket-preview" alt="Ticket">
     </label>
-
     <span class="qty-label-title">¿Cuántos cartones has comprado en total?</span>
     <div id="brand-qty-container"></div>
     <div class="qty-hint">También válido Duopack (cuenta como 2 cartones)</div>
-
     <div class="error-msg" id="error-msg"></div>
     <button class="btn-primary" id="btn-step2" onclick="goToStep3()" disabled>VER MI REGALO →</button>
   </div>
 
-  <!-- STEP 3: REWARD -->
+  <!-- STEP 3 -->
   <div class="section" id="section-3">
     <div class="reward-header">
       <div class="reward-qty-badge">
@@ -619,55 +192,35 @@
       </div>
       <div class="reward-brand-pill" id="r-brand">—</div>
     </div>
-
-    <!-- Choice section - shown dynamically -->
     <div id="choice-section" style="display:none">
       <div class="choice-label" id="choice-label">Elige tu regalo</div>
-      <div class="reward-card choice" id="choice-chanclas" onclick="selectChoice('chanclas', this)">
+      <div class="reward-card choice" id="choice-chanclas" onclick="selectChoice('chanclas',this)">
         <div class="reward-icon">🩴</div>
-        <div class="reward-info">
-          <div class="reward-name">Chanclas</div>
-          <div class="reward-req">Por 1 o 2 cartones</div>
-        </div>
+        <div class="reward-info"><div class="reward-name">Chanclas</div><div class="reward-req">Por 1 o 2 cartones</div></div>
         <div class="reward-status" id="rs-chanclas">○</div>
       </div>
-      <div class="reward-card choice" id="choice-termo" onclick="selectChoice('termo', this)">
+      <div class="reward-card choice" id="choice-termo" onclick="selectChoice('termo',this)">
         <div class="reward-icon">☕</div>
-        <div class="reward-info">
-          <div class="reward-name">Termo</div>
-          <div class="reward-req">Por 2 cartones (o Duopack)</div>
-        </div>
+        <div class="reward-info"><div class="reward-name">Termo</div><div class="reward-req">Por 2 cartones (o Duopack)</div></div>
         <div class="reward-status" id="rs-termo">○</div>
       </div>
-      <div class="reward-card choice" id="choice-altavoces" onclick="selectChoice('altavoces', this)" style="display:none">
+      <div class="reward-card choice" id="choice-altavoces" onclick="selectChoice('altavoces',this)" style="display:none">
         <div class="reward-icon">🔊</div>
-        <div class="reward-info">
-          <div class="reward-name">Altavoces</div>
-          <div class="reward-req">Por 3 cartones</div>
-        </div>
+        <div class="reward-info"><div class="reward-name">Altavoces</div><div class="reward-req">Por 3 cartones</div></div>
         <div class="reward-status" id="rs-altavoces">○</div>
       </div>
-      <div class="reward-card choice" id="choice-voucher" onclick="selectChoice('voucher', this)" style="display:none">
+      <div class="reward-card choice" id="choice-voucher" onclick="selectChoice('voucher',this)" style="display:none">
         <div class="reward-icon">🎟️</div>
-        <div class="reward-info">
-          <div class="reward-name">Voucher 5€</div>
-          <div class="reward-req">Canjea 5€ en cualquier compra en la tienda<br><em style="font-size:10px;color:#999">Get a 5€ voucher on any purchase in the Store</em></div>
-        </div>
+        <div class="reward-info"><div class="reward-name">Voucher 5€</div><div class="reward-req">Canjea 5€ en cualquier compra en la tienda</div></div>
         <div class="reward-status" id="rs-voucher">○</div>
       </div>
     </div>
-
     <button class="btn-primary" id="btn-confirm" onclick="confirmReward()" disabled>RECLAMAR MI REGALO</button>
   </div>
-
 </div>
 
-<div class="app-footer">
-  Promoción válida hasta fin de existencias · Solo para mayores de edad<br>
-  BAT · Verano 2026
-</div>
+<div class="app-footer">Promoción válida hasta fin de existencias · Solo para mayores de edad<br>BAT · Verano 2026</div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <div class="modal-icon" id="modal-icon">🎉</div>
@@ -677,18 +230,38 @@
   </div>
 </div>
 
-<script>
-  let selectedBrands = [];
-  let selectedQty = 0;
-  let brandQtys = {};
-  let ticketLoaded = false;
-  let chosenReward = null; // for 3-carton choice
+<div class="modal-overlay" id="voucher-modal">
+  <div class="voucher-wrap">
+    <div class="voucher">
+      <div class="voucher-top">
+        <div class="voucher-bat">BAT · Summer Rewards</div>
+        <div class="voucher-promo">Summer Rewards 2026</div>
+      </div>
+      <div class="voucher-middle">
+        <div class="voucher-amount">5€</div>
+        <div class="voucher-desc">VOUCHER DE DESCUENTO</div>
+        <div class="voucher-desc-en">Discount voucher · valid on any purchase in the Store</div>
+      </div>
+      <div class="voucher-dashes"></div>
+      <div class="voucher-bottom">
+        <div class="voucher-brand-used" id="v-brand">—</div>
+        <div class="voucher-code" id="v-code">—</div>
+        <div class="voucher-instructions">Muestra este cupón al personal de la tienda · Show this voucher to the Store staff</div>
+      </div>
+    </div>
+    <button class="voucher-close" onclick="closeVoucher()">✕ Cerrar</button>
+  </div>
+</div>
 
-  const REWARDS = [
-    { id: 'chanclas', icon: '🩴', name: 'Chanclas', min: 1 },
-    { id: 'termo',    icon: '☕', name: 'Termo',    min: 2 },
-    { id: 'altavoces',icon: '🔊', name: 'Altavoces', min: 3 },
-  ];
+<script>
+  // ── URL del Google Apps Script ─────────────────────────────────────────────
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6df6_ZW4WV-SmJmOVVd4oIX4obZ_DrMSlUzQErixWtdn4fNLwg2DyVd8nSd3iF3FB7Q/exec';
+
+  let selectedBrands = [];
+  let selectedQty    = 0;
+  let brandQtys      = {};
+  let ticketLoaded   = false;
+  let chosenReward   = null;
 
   function selectBrand(name, el) {
     if (el.classList.contains('selected')) {
@@ -702,8 +275,7 @@
   }
 
   function goToStep2() {
-    if (selectedBrands.length === 0) return;
-    // Build brand qty UI
+    if (!selectedBrands.length) return;
     buildBrandQtyUI();
     setStep(2);
   }
@@ -711,11 +283,10 @@
   function handleTicket(input) {
     const file = input.files[0];
     if (!file) return;
-    const zone = document.getElementById('ticket-zone');
-    zone.classList.add('has-file');
+    document.getElementById('ticket-zone').classList.add('has-file');
     document.getElementById('tz-icon').textContent = '✅';
     document.getElementById('tz-text').textContent = file.name.length > 28 ? file.name.slice(0,28)+'…' : file.name;
-    document.getElementById('tz-sub').textContent = (file.size/1024).toFixed(0) + ' KB · cargado';
+    document.getElementById('tz-sub').textContent  = (file.size/1024).toFixed(0) + ' KB · cargado';
     const reader = new FileReader();
     reader.onload = e => {
       const preview = document.getElementById('ticket-preview');
@@ -729,7 +300,6 @@
 
   function selectQty(n, brand, btn) {
     brandQtys[brand] = n;
-    // Deselect sibling buttons for this brand
     btn.closest('.brand-qty-row').querySelectorAll('.qty-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     selectedQty = getTotalQty();
@@ -740,7 +310,7 @@
     brandQtys = {};
     const container = document.getElementById('brand-qty-container');
     container.innerHTML = '';
-    selectedBrands.forEach(function(brand) {
+    selectedBrands.forEach(brand => {
       const row = document.createElement('div');
       row.className = 'brand-qty-row';
       const label = document.createElement('div');
@@ -748,11 +318,11 @@
       label.innerHTML = 'Cartones de <strong>' + brand + '</strong>';
       const btns = document.createElement('div');
       btns.className = 'qty-buttons';
-      [1, 2, 3].forEach(function(n) {
+      [1,2,3].forEach(n => {
         const btn = document.createElement('button');
         btn.className = 'qty-btn';
         btn.textContent = n;
-        btn.addEventListener('click', function() { selectQty(n, brand, btn); });
+        btn.addEventListener('click', () => selectQty(n, brand, btn));
         btns.appendChild(btn);
       });
       row.appendChild(label);
@@ -762,54 +332,42 @@
   }
 
   function checkStep2() {
-    const total = getTotalQty();
-    document.getElementById('btn-step2').disabled = !(ticketLoaded && total > 0);
+    document.getElementById('btn-step2').disabled = !(ticketLoaded && getTotalQty() > 0);
   }
 
   function getTotalQty() {
-    return selectedBrands.reduce((sum, b) => sum + (brandQtys[b] || 0), 0);
+    return selectedBrands.reduce((s,b) => s + (brandQtys[b]||0), 0);
   }
 
   function goToStep3() {
     selectedQty = getTotalQty();
     if (!ticketLoaded) { showError('Por favor sube una foto de tu ticket.'); return; }
-    if (!selectedQty) { showError('Selecciona cuántos cartones has comprado.'); return; }
+    if (!selectedQty)  { showError('Selecciona cuántos cartones has comprado.'); return; }
     hideError();
     setStep(3);
-
-    document.getElementById('r-qty').textContent = selectedQty;
+    document.getElementById('r-qty').textContent   = selectedQty;
     document.getElementById('r-brand').textContent = selectedBrands.join(', ');
-
-    // Show choice section always
     document.getElementById('choice-section').style.display = 'block';
     chosenReward = null;
     document.getElementById('btn-confirm').disabled = true;
-
-    // Reset all choice cards
     document.querySelectorAll('.reward-card.choice').forEach(c => {
       c.style.display = 'none';
       c.classList.remove('chosen');
       c.querySelector('.reward-status').textContent = '○';
     });
-
     if (selectedQty === 1) {
-      // 1 carton: only chanclas
       document.getElementById('choice-chanclas').style.display = 'flex';
       document.getElementById('choice-label').textContent = 'Tu regalo';
-      // Auto-select chanclas
       selectChoice('chanclas', document.getElementById('choice-chanclas'));
     } else if (selectedQty === 2) {
-      // 2 cartones: choose chanclas or termo
       document.getElementById('choice-chanclas').style.display = 'flex';
-      document.getElementById('choice-termo').style.display = 'flex';
+      document.getElementById('choice-termo').style.display    = 'flex';
       document.getElementById('choice-label').textContent = 'Elige tu regalo';
-    } else if (selectedQty >= 3) {
-      // 3 cartones: choose altavoces or voucher
+    } else {
       document.getElementById('choice-altavoces').style.display = 'flex';
-      document.getElementById('choice-voucher').style.display = 'flex';
+      document.getElementById('choice-voucher').style.display   = 'flex';
       document.getElementById('choice-label').textContent = 'Elige tu regalo';
     }
-
     spawnConfetti();
   }
 
@@ -820,20 +378,35 @@
     });
     el.classList.add('chosen');
     el.querySelector('.reward-status').textContent = '✅';
-    const rewards = {
-      chanclas:  { id: 'chanclas',  icon: '🩴', name: 'Chanclas' },
-      termo:     { id: 'termo',     icon: '☕', name: 'Termo' },
-      altavoces: { id: 'altavoces', icon: '🔊', name: 'Altavoces' },
-      voucher:   { id: 'voucher',   icon: '🎟️', name: 'Voucher 5€' }
-    };
-    chosenReward = rewards[type];
+    const map = { chanclas:{id:'chanclas',icon:'🩴',name:'Chanclas'}, termo:{id:'termo',icon:'☕',name:'Termo'}, altavoces:{id:'altavoces',icon:'🔊',name:'Altavoces'}, voucher:{id:'voucher',icon:'🎟️',name:'Voucher 5€'} };
+    chosenReward = map[type];
     document.getElementById('btn-confirm').disabled = false;
   }
 
-  function confirmReward() {
+  async function confirmReward() {
     if (!chosenReward) return;
     const btn = document.getElementById('btn-confirm');
-    btn.disabled = true; btn.textContent = '✅ REGALO RECLAMADO';
+    btn.disabled    = true;
+    btn.textContent = '⏳ Guardando...';
+
+    // Guardar en Google Sheets
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          marcas:    selectedBrands.join(', '),
+          cartones:  selectedQty,
+          regalo:    chosenReward.name,
+          ticket_url: ''
+        })
+      });
+    } catch(e) {
+      console.warn('Error guardando:', e);
+    }
+
+    btn.textContent = '✅ REGALO RECLAMADO';
     spawnConfetti();
 
     if (chosenReward.id === 'voucher') {
@@ -845,90 +418,44 @@
 
   function setStep(n) {
     [1,2,3].forEach(i => {
-      document.getElementById('section-' + i).classList.remove('active');
-      const tab = document.getElementById('tab-' + i);
-      tab.classList.remove('active', 'done');
+      document.getElementById('section-'+i).classList.remove('active');
+      const tab = document.getElementById('tab-'+i);
+      tab.classList.remove('active','done');
       if (i < n) tab.classList.add('done');
       else if (i === n) tab.classList.add('active');
     });
-    document.getElementById('section-' + n).classList.add('active');
-    window.scrollTo(0, 0);
+    document.getElementById('section-'+n).classList.add('active');
+    window.scrollTo(0,0);
   }
 
   function showError(msg) { const el = document.getElementById('error-msg'); el.textContent = msg; el.classList.add('show'); }
-  function hideError() { document.getElementById('error-msg').classList.remove('show'); }
-
-  function showModal(icon, title, body) {
-    document.getElementById('modal-icon').textContent = icon;
+  function hideError()    { document.getElementById('error-msg').classList.remove('show'); }
+  function showModal(icon,title,body) {
+    document.getElementById('modal-icon').textContent  = icon;
     document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-body').innerHTML = body;
+    document.getElementById('modal-body').innerHTML    = body;
     document.getElementById('modal').classList.add('show');
   }
-
   function spawnConfetti() {
     const colors = ['#003DA5','#C9A84C','#E30613','#FFFFFF','#1A5BC4'];
     for (let i=0;i<50;i++) {
-      const c = document.createElement('div'); c.className = 'confetti-piece';
-      const size = Math.random()*8+4;
-      c.style.cssText = `left:${Math.random()*100}vw;top:-10px;background:${colors[Math.floor(Math.random()*colors.length)]};width:${size}px;height:${size}px;animation-duration:${Math.random()*2+1.5}s;animation-delay:${Math.random()*0.5}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
+      const c = document.createElement('div'); c.className='confetti-piece';
+      const s = Math.random()*8+4;
+      c.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${colors[Math.floor(Math.random()*5)]};width:${s}px;height:${s}px;animation-duration:${Math.random()*2+1.5}s;animation-delay:${Math.random()*0.5}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
       document.body.appendChild(c); setTimeout(()=>c.remove(),4000);
     }
   }
-
   function generateCode() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let code = '';
-    for (let i = 0; i < 8; i++) {
-      if (i === 4) code += '-';
-      code += chars[Math.floor(Math.random() * chars.length)];
-    }
+    const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let code='';
+    for(let i=0;i<8;i++){if(i===4)code+='-';code+=chars[Math.floor(Math.random()*chars.length)];}
     return code;
   }
-
   function showVoucher() {
-    const code = generateCode();
-    const now = new Date();
-    const expiry = new Date(now);
-    expiry.setDate(expiry.getDate() + 30);
-    const fmt = d => d.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric' });
     document.getElementById('v-brand').textContent = 'Marca: ' + selectedBrands.join(', ');
-    document.getElementById('v-code').textContent = code;
-
+    document.getElementById('v-code').textContent  = generateCode();
     document.getElementById('voucher-modal').classList.add('show');
   }
-
-  function closeVoucher() {
-    document.getElementById('voucher-modal').classList.remove('show');
-  }
-
+  function closeVoucher() { document.getElementById('voucher-modal').classList.remove('show'); }
 </script>
-
-<!-- VOUCHER MODAL -->
-<div class="modal-overlay" id="voucher-modal">
-  <div class="voucher-wrap">
-    <div class="voucher">
-      <div class="voucher-top">
-        <div class="voucher-logos">
-          <img src="data:image/jpeg;base64,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" alt="BAT" style="height:36px;object-fit:contain;">
-
-        </div>
-        <div class="voucher-promo">Summer Rewards 2026</div>
-      </div>
-      <div class="voucher-middle">
-        <div class="voucher-amount">5€</div>
-        <div class="voucher-desc">VOUCHER DE DESCUENTO</div>
-        <div class="voucher-desc-en">Discount voucher · valid on any purchase in the Store</div>
-      </div>
-      <div class="voucher-dashes"></div>
-      <div class="voucher-bottom">
-        <div class="voucher-brand-used" id="v-brand">—</div>
-        <div class="voucher-code" id="v-code">—</div>
-        
-        <div class="voucher-instructions">Muestra este cupón al personal de la tienda · Show this voucher to the Store staff</div>
-      </div>
-    </div>
-    <button class="voucher-close" onclick="closeVoucher()">✕ Cerrar</button>
-  </div>
-</div>
 </body>
 </html>
