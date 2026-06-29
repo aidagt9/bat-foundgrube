@@ -394,12 +394,10 @@
         cartones: selectedQty,
         regalo:   chosenReward.name
       });
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = SCRIPT_URL + '?' + params.toString();
-      document.body.appendChild(iframe);
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      document.body.removeChild(iframe);
+      await fetch(SCRIPT_URL + '?' + params.toString(), {
+        method: 'GET',
+        redirect: 'follow'
+      });
     } catch(e) {
       console.warn('Error guardando:', e);
     }
